@@ -57,9 +57,9 @@ export default function RankingMusicas() {
               </h1>
             </div>
             <img
-              src="/images/top1.svg" // arrumar fundo * Substituir pela foto do artista se disponível
+              src="/images/top1.svg" // arrumar fundo *Substituir pela foto do artista se disponível
               alt={musicaDestaque.nome}
-              className="rounded-3xl object-cover h-full max-h-40"
+              className="width:199 height=50" //SVG IMAGEM IMPORTADA TAMANHO.
               style={{ aspectRatio: "1/1" }}
             />
           </div>

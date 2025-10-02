@@ -57,7 +57,7 @@ export default function RankingMusicas() {
               </h1>
             </div>
             <img
-              src="/user-placeholder.png" // Substituir pela foto do artista se disponível
+              src="/images/top1.svg" // arrumar fundo * Substituir pela foto do artista se disponível
               alt={musicaDestaque.nome}
               className="rounded-3xl object-cover h-full max-h-40"
               style={{ aspectRatio: "1/1" }}

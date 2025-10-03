@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Voltar from "../../components/Voltar.jsx";
 import { top100Artistas, top20MusicasDoArtista } from "../../utils/dataProcessing.js";
+import FiltroPeriodo from "../../components/FiltroPeriodo.jsx";
 
 export default function ArtistaDetalhe() {
   const router = useRouter();

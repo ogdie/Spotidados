@@ -32,26 +32,31 @@ export default function ArtistaDetalhe() {
   const periodos = ["sempre", "1ano", "6meses", "4semanas"];
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6"
-         style={{ backgroundImage: "url('/background2.png')" }}>
+    <div className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6 text-white"
+         style={{ backgroundImage: "url('/images/background.png')" }}>
       
       {/* Topo com botão voltar e dropdown perfil */}
-      <div className="w-full flex justify-between items-center mb-6 relative">
+      <div className="w-full flex items-center justify-between mb-6 px-2 relative">
         <Voltar />
-
-        <div className="flex flex-col gap-1 relative">
+        <div className="relative z-50">
           <button
-            className="flex flex-col justify-center items-center p-1"
+            className="p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
+            <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+            />
           </button>
 
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">
-              <Link href="/perfil" className="block px-4 py-2 hover:bg-green-100">Perfil</Link>
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <ul className="flex flex-col">
+                <li>
+                  <Link href="/perfil" className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors">Perfil</Link>
+                </li>
+              </ul>
             </div>
           )}
         </div>
@@ -78,7 +83,7 @@ export default function ArtistaDetalhe() {
       <div className="w-full max-w-3xl h-96 overflow-y-auto mb-4">
         {topMusicas.map((musica, index) => (
           <div key={index} className="flex justify-between items-center p-3 bg-white rounded-xl mb-2 shadow-md hover:bg-orange-100 transition-colors">
-            <span className="font-semibold">{musica.nome}</span>
+            <span className="font-semibold text-black">{musica.nome}</span>
             <span className="text-gray-500">{Math.floor((musica.ms_played || 0)/60000)} min</span>
           </div>
         ))}

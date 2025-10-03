@@ -16,31 +16,33 @@ export default function Pesquisa() {
 
   return (
     <div
-      className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6"
-      style={{ backgroundImage: "url('/background-placeholder.png')" }}
+      className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6 text-white"
+      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       {/* Topo com botão Voltar e dropdown de perfil */}
-      <div className="w-full flex justify-between items-center mb-6 relative">
+      <div className="w-full flex items-center justify-between mb-6 px-2 relative">
         <Voltar />
-
-        {/* Menu 3 linhas com dropdown */}
-        <div className="flex flex-col gap-0.5 relative">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            <span className="w-3 h-0.5 bg-black rounded block"></span>
-            <span className="w-3 h-0.5 bg-black rounded block"></span>
-            <span className="w-3 h-0.5 bg-black rounded block"></span>
+        <div className="relative z-50">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
+            <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+            />
           </button>
-
-          {/* Dropdown só aparece quando menuOpen === true */}
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">
-              <Link
-                href="/perfil"
-                className="block px-4 py-2 hover:bg-green-100"
-                onClick={() => setMenuOpen(false)} // fecha ao clicar
-              >
-                Perfil
-              </Link>
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <ul className="flex flex-col">
+                <li>
+                  <Link
+                    href="/perfil"
+                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Perfil
+                  </Link>
+                </li>
+              </ul>
             </div>
           )}
         </div>
@@ -48,12 +50,12 @@ export default function Pesquisa() {
 
       {/* Caixa de pesquisa */}
       <div className="w-full max-w-md mx-auto mb-6">
-        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white">
+        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white text-black">
           <span className="text-gray-400 mr-2">🔍</span>
           <input
             type="text"
             placeholder="Pesquise sons, artistas, álbuns..."
-            className="flex-1 outline-none"
+            className="flex-1 outline-none bg-transparent text-black placeholder:text-gray-500"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -65,7 +67,7 @@ export default function Pesquisa() {
         {musicasFiltradas.map((m, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-between bg-white rounded-lg p-2 shadow"
+            className="flex items-center justify-between bg-white/90 rounded-lg p-2 shadow"
           >
             <div className="flex items-center gap-3">
               {/* Placeholder de capa */}

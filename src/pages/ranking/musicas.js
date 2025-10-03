@@ -20,29 +20,32 @@ export default function RankingMusicas() {
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen px-4 pt-6 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/background2.png')" }}
+      className="flex flex-col items-center min-h-screen px-4 pt-6 bg-cover bg-center bg-no-repeat text-white"
+      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       {/* Topo: Voltar + Dropdown */}
-      <div className="w-full flex justify-between items-center mb-6 relative max-w-md mx-auto">
+      <div className="w-full flex items-center justify-between mb-6 px-2 max-w-md mx-auto">
         <Voltar href="/ranking" />
-        <div className="flex flex-col gap-1 relative">
-          <button
-            className="flex flex-col justify-center items-center p-1"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
+        <div className="relative z-50">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
+            <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+            />
           </button>
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">
-              <Link
-                href="/perfil"
-                className="block px-4 py-2 hover:bg-green-100"
-              >
-                Perfil
-              </Link>
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <ul className="flex flex-col">
+                <li>
+                  <Link
+                    href="/perfil"
+                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors"
+                  >
+                    Perfil
+                  </Link>
+                </li>
+              </ul>
             </div>
           )}
         </div>
@@ -83,18 +86,20 @@ export default function RankingMusicas() {
       )}
 
       {/* Três botões ovais: Artistas, Músicas, Álbuns */}
-      <div className="flex flex-wrap justify-center gap-2 mb-4 max-w-md mx-auto">
-        {["Artistas", "Músicas", "Álbuns"].map((btn, idx) => (
-          <button
-            key={idx}
-            className={`px-4 py-2 rounded-full border border-orange-400 transition-colors ${
-              btn === "Músicas"
-                ? "bg-orange-400 text-white hover:bg-orange-500"
-                : "bg-white text-black hover:bg-gray-100"
-            }`}
-          >
-            {btn}
-          </button>
+      <div className="flex flex-col gap-4 w-full items-center max-w-md mb-4">
+        {[
+          { href: "/ranking/artistas", label: "ARTISTAS" },
+          { href: "/ranking/musicas", label: "MÚSICAS" },
+          { href: "/ranking/albuns", label: "ÁLBUNS" },
+        ].map(({ href, label }) => (
+          <Link href={href} key={label} className="w-full">
+            <div className="relative group w-full h-[60px]">
+              <button className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800">
+                {label}
+              </button>
+              <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+            </div>
+          </Link>
         ))}
       </div>
 

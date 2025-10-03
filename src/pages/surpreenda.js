@@ -76,7 +76,7 @@ export default function Surpreenda() {
         />
       </div>
 
-      {/* Cards estilizados como botões */}
+      {/* Cards estilizados como botões ovais */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-md mb-8">
         {cards.map((card, index) => (
           <Link href={`/surpreenda/${createSlug(card.title)}`} key={index} className="group">

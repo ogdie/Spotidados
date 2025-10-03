@@ -111,20 +111,30 @@ export default function Artistas() {
             </div>
           </div>
 
-          {/* Botões */}
+          {/* Botões (estilo oval padronizado) */}
           <div className="flex gap-3 w-full">
             <Link
               href={`/artistas/${encodeURIComponent(artistaSelecionado)}`}
-              className="flex-1 bg-green-400 text-purple-800 px-4 py-2 rounded- font-semibold text-center"
+              className="flex-1"
             >
-              TOP 20 MUSICAS
+              <div className="relative group w-full h-[60px]">
+                <button className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800">
+                  TOP 20 MÚSICAS
+                </button>
+                <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+              </div>
             </Link>
-            <button
-              onClick={() => setShowInfoGeral(!showInfoGeral)}
-              className="flex-1 bg-purple-300 text-black px-4 py-2 rounded-xl font-semibold"
-            >
-              INFORMAÇÕES GERAIS
-            </button>
+            <div className="flex-1">
+              <div className="relative group w-full h-[60px]">
+                <button
+                  onClick={() => setShowInfoGeral(!showInfoGeral)}
+                  className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800"
+                >
+                  INFORMAÇÕES GERAIS
+                </button>
+                <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+              </div>
+            </div>
           </div>
 
           {/* Card com informações gerais */}

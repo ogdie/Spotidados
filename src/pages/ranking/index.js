@@ -48,7 +48,7 @@ export default function Ranking() {
         <img
           src="/images/ranking.svg"
           alt="Ranking"
-          className="w-[200px] h-[50px] cursor-default select-none"
+          className="w-[200px] h-[50px] cursor-pointer hover:scale-105 transition-transform"
         />
       </div>
 

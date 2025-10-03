@@ -81,13 +81,15 @@ export default function Menu() {
           { href: "/artistas", label: "SOBRE OS ARTISTAS" },
           { href: "/ranking", label: "RANKING" },
         ].map(({ href, label }) => (
-          <Link href={href} key={label}>
-            <div className="relative group w-full">
-              <button className="w-full py-4 rounded-full bg-white/80 text-green-700 font-semibold border border-yellow-500 shadow-md relative z-10">
-                {label}
-              </button>
-              <div className="absolute inset-0 rounded-full bg-green-900/30 opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
-            </div>
+          <Link
+            href={href}
+            key={label}
+            className="relative group w-full block"
+          >
+            <button className="w-full py-4 rounded-full bg-white/80 text-green-700 font-semibold border border-yellow-500 shadow-md relative z-10">
+              {label}
+            </button>
+            <div className="absolute inset-0 rounded-full bg-green-900/30 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none"></div>
           </Link>
         ))}
       </div>

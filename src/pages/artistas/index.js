@@ -12,17 +12,27 @@ import {
 } from "../../utils/dataProcessing.js";
 
 export default function Artistas() {
-  const artistas = top100Artistas();
+  // Adicione a propriedade 'imagem' para cada artista
+  const artistas = top100Artistas().map((artista) => ({
+    ...artista,
+    imagem: artista.nome === "Kendrick" ? "/images/foto.kendrick.svg" : "/images/artista-placeholder.png"
+  }));
+
   const [artistaSelecionado, setArtistaSelecionado] = useState(
     artistas.length > 0 ? artistas[0].nome : null
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const [showInfoGeral, setShowInfoGeral] = useState(false);
 
+  const artistaAtual = artistas.find(a => a.nome === artistaSelecionado);
+
   return (
-    <div className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6">
+    <div
+      className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6"
+      style={{ backgroundImage: "url('/images/background2.png')" }}
+    >
       {/* Topo */}
-      <div className="w-full flex justify-between items-center mb-6 relative">
+      <div className="w-full flex justify-between items-center mb-6 relative max-w-md mx-auto">
         <Voltar />
         <div className="flex flex-col gap-1 relative">
           <button
@@ -51,7 +61,6 @@ export default function Artistas() {
             alt="Botão interativo"
             className="w-[215px] h-[71px] hover:scale-105 transition-transform"
           />
-
         </h1>
         <p className="text-green-500 text-lg mt-2 text-left">os imortais do seu fone</p>
       </div>
@@ -68,13 +77,17 @@ export default function Artistas() {
           <div
             key={artista.nome}
             className={`flex flex-col items-center cursor-pointer ${artistaSelecionado === artista.nome
-              ? "bg-green-100 rounded-full p-1"
+              ? "ring-2 ring-green-500 rounded-full p-1"
               : ""
             }`}
             onClick={() => setArtistaSelecionado(artista.nome)}
           >
-            <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
-              <span className="text-sm">{artista.nome[0]}</span>
+            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center">
+              <img
+                src={'/images/kendrick2.svg'}
+                alt={'Kendrick Lamar'}
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="text-sm mt-1">{artista.nome}</span>
           </div>
@@ -82,16 +95,20 @@ export default function Artistas() {
       </div>
 
       {/* Card do artista selecionado */}
-      {artistaSelecionado && (
-        <div className="flex flex-col w-full max-w-md bg-white p-4 rounded-3xl shadow-md gap-4">
-          {/* Imagem e nome */}
+      {artistaAtual && (
+        <div className="flex flex-col w-full max-w-md bg-white/20 backdrop-blur-md p-4 rounded-3xl shadow-md gap-4">
+          {/* Imagem e nome do artista */}
           <div className="flex justify-between items-center">
             <div className="flex flex-col">
               <h2 className="text-xl font-bold">{artistaSelecionado}</h2>
               <span className="text-green-500 text-sm">Artista</span>
             </div>
-            <div className="w-20 h-20 bg-gray-300 rounded-2xl flex items-center justify-center">
-              <span>{artistaSelecionado[0]}</span>
+            <div className="w-20 h-20 rounded-2xl overflow-hidden">
+              <img
+                src={'/images/kendrick2.svg'}
+                alt={artistaSelecionado}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 

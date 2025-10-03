@@ -29,7 +29,7 @@ export default function Artistas() {
   return (
     <div
       className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6"
-      style={{ backgroundImage: "url('/images/background2.png')" }}
+      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       {/* Topo */}
       <div className="w-full flex justify-between items-center mb-6 relative max-w-md mx-auto">
@@ -55,20 +55,19 @@ export default function Artistas() {
 
       {/* OS SEUS FAVORITOS */}
       <div className="text-center mb-4">
-        <h1 className="text-3xl font-bold leading-snug">
           <img
             src="/images/favourites.svg"
             alt="Botão interativo"
             className="w-[215px] h-[71px] hover:scale-105 transition-transform"
           />
-        </h1>
-        <p className="text-green-500 text-lg mt-2 text-left">os imortais do seu fone</p>
       </div>
 
       {/* Top Artistas */}
-      <div className="flex items-center w-full max-w-md mb-4">
-        <div className="mr-2 transform rotate-45 border-b-2 border-black w-4"></div>
-        <span className="font-semibold text-lg text-black">Top Artistas</span>
+      <div className="text-center mb-4">
+          <img
+            src="/images/icon.top.artista.png"
+            alt="Botão interativo"
+          />
       </div>
 
       {/* Scroll horizontal de artistas */}
@@ -116,13 +115,13 @@ export default function Artistas() {
           <div className="flex gap-3 w-full">
             <Link
               href={`/artistas/${encodeURIComponent(artistaSelecionado)}`}
-              className="flex-1 bg-green-400 text-purple-800 px-4 py-2 rounded-md font-semibold text-center"
+              className="flex-1 bg-green-400 text-purple-800 px-4 py-2 rounded- font-semibold text-center"
             >
               TOP 20 MUSICAS
             </Link>
             <button
               onClick={() => setShowInfoGeral(!showInfoGeral)}
-              className="flex-1 bg-purple-300 text-black px-4 py-2 rounded-md font-semibold"
+              className="flex-1 bg-purple-300 text-black px-4 py-2 rounded-xl font-semibold"
             >
               INFORMAÇÕES GERAIS
             </button>

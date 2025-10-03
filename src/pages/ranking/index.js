@@ -6,7 +6,7 @@ export default function Ranking() {
     <div
       className="flex flex-col items-center min-h-screen px-4 pt-6 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/background2.png')",
+        backgroundImage: "url('/images/background.png')",
       }}
     >
       {/* Topo: botão voltar */}

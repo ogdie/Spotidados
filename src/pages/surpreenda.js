@@ -47,6 +47,7 @@ export default function Surpreenda() {
       }}
     >
       {/* Topo */}
+      
       <div className="w-full flex justify-between items-center mb-6 px-2">
         <Voltar />
         <div className="relative z-50">

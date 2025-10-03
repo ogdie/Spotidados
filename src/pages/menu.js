@@ -54,29 +54,29 @@ export default function Menu() {
 
       {/* FRASE */}
       <div className="text-left w-full max-w-md mb-8">
-        <h1 className="text-2xl font-bold text-purple-300">#CLIQUE E DESCUBRA</h1>
-        <p className="text-green-400 text-lg mt-2">alguma frase...</p>
+        <span className="text-green-500 text-sm">music is coming!</span>       {/* ARRUMAR ALINHAMENTO */}
+
       </div>
 
-      {/* BOTÕES PRINCIPAIS */}
-      <div className="flex flex-col gap-6 w-full items-start max-w-md">
-        {[
-          { href: "/surpreenda", label: "ME SURPREENDA" },
-          { href: "/artistas", label: "SOBRE OS ARTISTAS" },
-          { href: "/ranking", label: "RANKING" },
-        ].map(({ href, label }) => (
-          <Link href={href} key={label} className="w-full">
-            <div className="relative group w-full h-[80px]">
-              <button
-                className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800"
-              >
-                {label}
-              </button>
-              <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
-            </div>
-          </Link>
-        ))}
+     {/* BOTÕES PRINCIPAIS */}
+<div className="flex flex-col gap-6 w-full items-center max-w-md mt-20">
+  {[
+    { href: "/surpreenda", label: "ME SURPREENDA" },
+    { href: "/artistas", label: "SOBRE OS ARTISTAS" },
+    { href: "/ranking", label: "RANKING" },
+  ].map(({ href, label }) => (
+    <Link href={href} key={label} className="w-full">
+      <div className="relative group w-full h-[80px]">
+        <button
+          className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800"
+        >
+          {label}
+        </button>
+        <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
       </div>
+    </Link>
+  ))}
+</div>
     </div>
   );
 }

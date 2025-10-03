@@ -6,7 +6,7 @@ export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-      <div
+    <div
       className="flex flex-col items-center justify-start min-h-screen bg-cover bg-center bg-no-repeat text-black px-4 pt-6"
       style={{
         backgroundImage: "url('/images/background2.png')",
@@ -15,11 +15,13 @@ export default function Menu() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Topo com botão Voltar e menu 3 linhas */}
-      <div className="w-full flex justify-between items-center mb-8 relative">
-        
-        {/* Botão Voltar */}
-        <Voltar />
+      {/* TOPO */}
+      <div className="w-full flex items-center justify-between mb-8 px-4 relative">
+        {/* Botão Voltar - Esquerda */}
+        <div>
+          <Voltar />
+        </div>
+
         {/* Logo - Centro */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <img
@@ -27,71 +29,63 @@ export default function Menu() {
             alt="Logo Spotidados"
             className="w-[100px] h-[100px]"
           />
-        </div> 
+        </div>
 
-        {/* Menu 3 linhas */}
-        <div className="flex flex-col gap-1 relative">
+        {/* Menu com imagem SVG - Direita */}
+        <div className="relative z-50">
           <button
-            className="flex flex-col justify-center items-center p-1"
             onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2"
           >
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
+            <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[40px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+            />
           </button>
 
-          {/* Dropdown */}
+          {/* Dropdown estilizado */}
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-purple-200 z-50">
-              <Link
-                href="/perfil"
-                className="block px-4 py-2 hover:bg-green-400 text-purple-900 font-bold"
-              >
-                Perfil
-              </Link>
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <ul className="flex flex-col">
+                <li>
+                  <Link
+                    href="/perfil"
+                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-green-100 hover:text-green-700 transition-colors"
+                  >
+                    Perfil
+                  </Link>
+                </li>
+              </ul>
             </div>
           )}
         </div>
       </div>
 
-      {/* CLIQUE E DESCUBRA  */}
+      {/* CLIQUE E DESCUBRA */}
       <div className="text-center mb-12">
-        {/* Botão Voltar - Esquerda */}
-        <Link href="/voltar">
-          <img
-            src="/images/buttom.back.svg"
-            alt="Botão Voltar"
-            className="w-[60px] h-[60px] cursor-pointer"
-          />
-        </Link>
-        <h1 className="text-3xl font-bold text-black leading-snug">
-          <img
-            src="/images/clique.descubra.svg"
-            alt="Botão interativo"
-            className="w-[215px] h-[71px] hover:scale-105 transition-transform"
-          />
+        <h1 className="text-3xl font-bold text-white leading-snug">
+          <span className="block text-purple-200">#CLIQUE E DESCUBRA</span>
+          <span className="block text-green-400 text-lg mt-2">TEXTO ALTERAR</span>
         </h1>
-
-        <p className="text-green-500 text-lg mt-2 text-left">TEXTO ALTERAR</p>
       </div>
 
-      {/* Botões */}
-      <div className="flex flex-col gap-6 w-full max-w-xs">
-        <Link href="/surpreenda">
-          <button className="w-full py-4 rounded-full bg-white text-green-700 font-semibold border border-orange-400 hover:bg-orange-400 transition-colors">
-            ME SURPREENDA
-          </button>
-        </Link>
-        <Link href="/artistas">
-          <button className="w-full py-4 rounded-full bg-white text-green-700 font-semibold border border-orange-400 hover:bg-orange-400 transition-colors">
-            SOBRE OS ARTISTAS
-          </button>
-        </Link>
-        <Link href="/ranking">
-          <button className="w-full py-4 rounded-full bg-white text-green-700 font-semibold border border-orange-400 hover:bg-orange-400 transition-colors">
-            RANKING
-          </button>
-        </Link>
+      {/* Botões principais com efeito hover */}
+      <div className="flex flex-col gap-6 w-full max-w-xs mt-12">
+        {[
+          { href: "/surpreenda", label: "ME SURPREENDA" },
+          { href: "/artistas", label: "SOBRE OS ARTISTAS" },
+          { href: "/ranking", label: "RANKING" },
+        ].map(({ href, label }) => (
+          <Link href={href} key={label}>
+            <div className="relative group w-full">
+              <button className="w-full py-4 rounded-full bg-white/80 text-green-700 font-semibold border border-yellow-500 shadow-md relative z-10">
+                {label}
+              </button>
+              <div className="absolute inset-0 rounded-full bg-green-900/30 opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

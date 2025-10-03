@@ -6,9 +6,13 @@ export default function Voltar() {
   return (
     <button
       onClick={() => router.back()}
-      className="text-blue-600 hover:underline mb-4 inline-block"
+      className="cursor-pointer"
     >
-      ← Voltar
+      <img
+        src="/images/buttom.back.svg"
+        alt="Botão Voltar"
+        className="w-[70px] h-[60px]"
+      />
     </button>
   );
 }

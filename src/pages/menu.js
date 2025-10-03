@@ -76,6 +76,7 @@ export default function Menu() {
 
       {/* Botões principais com efeito hover */}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <div className="flex flex-col gap-6 w-full max-w-xs mt-12">
         {[
           { href: "/surpreenda", label: "ME SURPREENDA" },
@@ -94,6 +95,8 @@ export default function Menu() {
           </Link>
         ))}
 =======
+=======
+>>>>>>> Stashed changes
     <div className="flex flex-col gap-6 w-full items-center mt-12">
   {[
     { href: "/surpreenda", label: "ME SURPREENDA" },
@@ -109,6 +112,9 @@ export default function Menu() {
           {label}
         </button>
         <div className="absolute inset-0 rounded-full bg-green-900 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       </div>
     </Link>

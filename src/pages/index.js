@@ -53,7 +53,7 @@ export default function Home() {
           <img
             src="/images/photo.profile.svg"
             alt="Foto do usuário"
-            className="w-16 h-16 rounded-full object-cover cursor-pointer hover:scale-105 transition-transform"
+            className="w-24 h-24 rounded-full object-cover cursor-pointer hover:scale-105 transition-transform"
           />
         </Link>
       </div>

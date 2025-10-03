@@ -21,7 +21,7 @@ export default function Ranking() {
         <div className="relative z-50">
           <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
             <img
-              src="/images/icon.menu.svg"
+              src="/images/icon.menu.svg" //botao menu
               alt="Abrir Menu"
               className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
             />
@@ -41,6 +41,15 @@ export default function Ranking() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* TÍTULO RANKING */}
+      <div className="w-full flex justify-start mb-4">
+        <img
+          src="/images/ranking.svg"
+          alt="Ranking"
+          className="w-[200px] h-[50px] cursor-default select-none"
+        />
       </div>
 
       {/* BOTÕES PRINCIPAIS */}

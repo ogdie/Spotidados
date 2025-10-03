@@ -16,6 +16,7 @@ export default function Menu() {
       }}
     >
       {/* TOPO */}
+      
       <div className="w-full flex items-center justify-between mb-8 px-2">
         <Voltar />
         <div className="relative z-50">
@@ -25,6 +26,8 @@ export default function Menu() {
               alt="Abrir Menu"
               className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
             />
+            
+            
           </button>
           {menuOpen && (
             <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">

@@ -67,9 +67,12 @@ export default function RankingMusicas() {
 
           <div className="flex items-center gap-4">
             <div className="flex flex-col justify-center">
-              <h1 className="text-3xl font-bold leading-snug text-center">
+              <h1 className="text-3xl font-bold leading-snug text-center font-modern text-gradient">
                 {musicaDestaque.nome}
               </h1>
+              {musicaDestaque.artista && (
+                <p className="text-sm mt-1 text-center font-modern text-gradient-subtle">{musicaDestaque.artista}</p>
+              )}
             </div>
 
             {/* Placeholder para imagem do artista */}
@@ -94,10 +97,10 @@ export default function RankingMusicas() {
         ].map(({ href, label }) => (
           <Link href={href} key={label} className="w-full">
             <div className="relative group w-full h-[60px]">
-              <button className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800">
+              <button className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800 transition-colors hover:bg-green-500/10 active:bg-green-500/15">
                 {label}
               </button>
-              <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+              <div className="absolute inset-0 rounded-full bg-green-400 opacity-0 group-hover:opacity-25 group-active:opacity-40 transition-opacity z-0"></div>
             </div>
           </Link>
         ))}

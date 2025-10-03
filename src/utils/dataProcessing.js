@@ -174,15 +174,37 @@ export function top100Artistas(periodo = "sempre") {
 // Top 100 Músicas
 export function top100Musicas(periodo = "sempre") {
   const dados = filtrarPorPeriodo(periodo);
-  const contagemMusicas = {};
+  const musicaAcumuladaPorNome = {};
 
   dados.forEach(m => {
     const nome = m.master_metadata_track_name;
+    const artista = m.master_metadata_album_artist_name;
     const ms = m.ms_played || 0;
-    if (nome) contagemMusicas[nome] = (contagemMusicas[nome] || 0) + ms;
+    if (!nome) return;
+
+    if (!musicaAcumuladaPorNome[nome]) {
+      musicaAcumuladaPorNome[nome] = { ms_played: 0, artistas: {} };
+    }
+    musicaAcumuladaPorNome[nome].ms_played += ms;
+    if (artista) {
+      musicaAcumuladaPorNome[nome].artistas[artista] = (musicaAcumuladaPorNome[nome].artistas[artista] || 0) + ms;
+    }
   });
 
-  const lista = Object.keys(contagemMusicas).map(n => ({ nome: n, ms_played: contagemMusicas[n] }));
+  const lista = Object.keys(musicaAcumuladaPorNome).map(nome => {
+    const entry = musicaAcumuladaPorNome[nome];
+    // escolhe o artista com maior tempo acumulado para essa faixa
+    let artistaPrincipal = "";
+    let max = -1;
+    for (const artista in entry.artistas) {
+      if (entry.artistas[artista] > max) {
+        max = entry.artistas[artista];
+        artistaPrincipal = artista;
+      }
+    }
+    return { nome, ms_played: entry.ms_played, artista: artistaPrincipal };
+  });
+
   lista.sort((a, b) => b.ms_played - a.ms_played);
   return lista.slice(0, 100);
 }
@@ -190,15 +212,35 @@ export function top100Musicas(periodo = "sempre") {
 // Top 100 Albuns
 export function top100Albuns(periodo = "sempre") {
   const dados = filtrarPorPeriodo(periodo);
-  const contagemAlbuns = {};
+  const albumAcumuladoPorNome = {};
 
   dados.forEach(m => {
     const nome = m.master_metadata_album_album_name;
+    const artista = m.master_metadata_album_artist_name;
     const ms = m.ms_played || 0;
-    if (nome) contagemAlbuns[nome] = (contagemAlbuns[nome] || 0) + ms;
+    if (!nome) return;
+    if (!albumAcumuladoPorNome[nome]) {
+      albumAcumuladoPorNome[nome] = { ms_played: 0, artistas: {} };
+    }
+    albumAcumuladoPorNome[nome].ms_played += ms;
+    if (artista) {
+      albumAcumuladoPorNome[nome].artistas[artista] = (albumAcumuladoPorNome[nome].artistas[artista] || 0) + ms;
+    }
   });
 
-  const lista = Object.keys(contagemAlbuns).map(n => ({ nome: n, ms_played: contagemAlbuns[n] }));
+  const lista = Object.keys(albumAcumuladoPorNome).map(nome => {
+    const entry = albumAcumuladoPorNome[nome];
+    let artistaPrincipal = "";
+    let max = -1;
+    for (const artista in entry.artistas) {
+      if (entry.artistas[artista] > max) {
+        max = entry.artistas[artista];
+        artistaPrincipal = artista;
+      }
+    }
+    return { nome, ms_played: entry.ms_played, artista: artistaPrincipal };
+  });
+
   lista.sort((a, b) => b.ms_played - a.ms_played);
   return lista.slice(0, 100);
 }

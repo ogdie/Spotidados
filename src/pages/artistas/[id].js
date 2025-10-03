@@ -89,24 +89,9 @@ export default function ArtistaDetalhe() {
         ))}
       </div>
 
-      {/* Filtro de período como botões roxo pastel */}
-      <div className="flex gap-3 mb-6">
-        {periodos.map(p => (
-          <button
-            key={p}
-            onClick={() => setPeriodo(p)}
-            className={`px-4 py-2 rounded-full font-semibold border transition-colors ${
-              periodo === p
-                ? "bg-orange-400 border-orange-400 text-white"
-                : "bg-purple-200 border-orange-400 text-black hover:bg-orange-400 hover:text-white"
-            }`}
-          >
-            {p === "sempre" ? "Desde Sempre" :
-             p === "1ano" ? "Último Ano" :
-             p === "6meses" ? "Últimos 6 Meses" :
-             "Últimas 4 Semanas"}
-          </button>
-        ))}
+      {/* Filtro de período - mesmo componente e estilo do ranking */}
+      <div className="px-4 w-full max-w-md mx-auto mb-6">
+        <FiltroPeriodo periodo={periodo} setPeriodo={setPeriodo} />
       </div>
     </div>
   );

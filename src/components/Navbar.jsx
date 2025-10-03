@@ -26,8 +26,8 @@ export default function Navbar() {
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
-        borderTop: "1px solid #ccc",
-        backgroundColor: "#fff",
+        borderTop: "1px solid rgba(255,255,255,0.15)",
+        backgroundColor: "transparent",
         width: "100%",
       }}
     >

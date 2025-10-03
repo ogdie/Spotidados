@@ -23,4 +23,42 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Modern readable font for headings and highlights */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+.font-modern {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient text utilities */
+.text-gradient {
+  background: linear-gradient(90deg, #f6ad55, #34d399, #9ca3af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-subtle {
+  background: linear-gradient(90deg, rgba(246,173,85,0.85), rgba(52,211,153,0.85), rgba(156,163,175,0.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Global subtle green hover/active for all buttons */
+button {
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+button:hover {
+  background-color: rgba(52, 211, 153, 0.10);
+}
+button:active {
+  background-color: rgba(52, 211, 153, 0.15);
 }

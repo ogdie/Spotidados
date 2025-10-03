@@ -62,11 +62,11 @@ export default function Ranking() {
           <Link href={href} key={label} className="w-full">
             <div className="relative group w-full h-[80px]">
               <button
-                className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800"
+                className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800 transition-colors hover:bg-green-500/10 active:bg-green-500/15"
               >
                 {label}
               </button>
-              <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+              <div className="absolute inset-0 rounded-full bg-green-400 opacity-0 group-hover:opacity-25 group-active:opacity-40 transition-opacity z-0"></div>
             </div>
           </Link>
         ))}

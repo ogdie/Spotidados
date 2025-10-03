@@ -5,10 +5,10 @@ export default function Footer() {
         height: '24px',    // bem pequeno
         fontSize: '12px',  // letras pequenas
         color: '#555',
-        backgroundColor: '#f3f3f3',
+        backgroundColor: 'transparent',
         textAlign: 'center',
         lineHeight: '24px', // centraliza verticalmente
-        borderTop: '1px solid #ccc',
+        borderTop: '1px solid rgba(255,255,255,0.15)',
       }}
     >
       © 2025 SPIRA. Todos os direitos reservados.

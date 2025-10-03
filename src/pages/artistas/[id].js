@@ -4,6 +4,7 @@ import Link from "next/link";
 import Voltar from "../../components/Voltar.jsx";
 import { top100Artistas, top20MusicasDoArtista } from "../../utils/dataProcessing.js";
 import FiltroPeriodo from "../../components/FiltroPeriodo.jsx";
+import { getArtistImage } from "../../utils/artistImages.js";
 
 export default function ArtistaDetalhe() {
   const router = useRouter();
@@ -44,10 +45,11 @@ export default function ArtistaDetalhe() {
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <img
-              src="/images/icon.menu.svg"
-              alt="Abrir Menu"
-              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+              src={getArtistImage(artistaSelecionado.nome)}
+              alt={artistaSelecionado.nome}
+              className="w-36 h-36 rounded-2xl object-cover cursor-pointer hover:scale-105 transition-transform"
             />
+
           </button>
 
           {menuOpen && (

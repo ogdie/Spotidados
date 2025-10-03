@@ -7,15 +7,15 @@ export default function FiltroPeriodo({ periodo, setPeriodo }) {
   ];
 
   return (
-    <div className="flex gap-2 mb-4">
+    <div className="flex flex-wrap justify-center gap-2 mb-4">
       {botoes.map((btn) => (
         <button
           key={btn.value}
           onClick={() => setPeriodo(btn.value)}
-          className={`px-4 py-2 rounded-full border transition-colors font-semibold ${
+          className={`px-3 py-1 rounded-full border transition-colors font-semibold text-sm ${
             periodo === btn.value
               ? "bg-orange-400 text-white border-orange-400"
-              : "bg-purple-200 text-black border-orange-400 hover:bg-orange-400 hover:text-white"
+              : "bg-white text-black border-orange-400 hover:bg-orange-400 hover:text-white"
           }`}
         >
           {btn.label}

@@ -47,7 +47,6 @@ export default function Surpreenda() {
       }}
     >
       {/* Topo */}
-      
       <div className="w-full flex justify-between items-center mb-6 px-2">
         <Voltar />
         <div className="relative z-50">
@@ -81,13 +80,13 @@ export default function Surpreenda() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-md mb-8">
         {cards.map((card, index) => (
           <Link href={`/surpreenda/${createSlug(card.title)}`} key={index} className="group">
-            <div className="relative w-full h-[86px]">
+            <div className="relative w-full h-[60px]">
               <button
                 className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800"
               >
                 <div className="text-center">
-                  <div className="text-xl font-bold">{card.value}</div>
-                  <div className="text-xs mt-1 uppercase">{card.title}</div>
+                  <div className="text-sm font-bold">{card.value}</div>
+                  <div className="text-[10px] mt-1 uppercase">{card.title}</div>
                 </div>
               </button>
               <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>

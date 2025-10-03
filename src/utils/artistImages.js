@@ -91,7 +91,17 @@ export const artistImages = {
   "Bruno Mars": "https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd",
   "Mick Jenkins": "https://i.scdn.co/image/ab6761610000e5eb0363debe6b7819966d3b58d3",
   "D. LYNCH": "https://i.scdn.co/image/95aab2d79f7db9b6da2ea2e04a552ad84a9f88a1",
-  "Julinho Ksd": "https://i.scdn.co/image/ab6761610000e5ebc67b292ac7cc6b8bd23f51ba"
+  "Julinho Ksd": "https://i.scdn.co/image/ab6761610000e5ebc67b292ac7cc6b8bd23f51ba",
+  "Token": "https://i.scdn.co/image/ab6761610000e5eb8b15bf1c4fa4d34d1b5e6c2a",
+  "WESTSIDE BOOGIE": "https://i.scdn.co/image/ab6761610000e5eb91ddb9259985ccc7361452e4",
+  "Warren G": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Flql2w0N5szcx1OEsXnE2Ip4qQ3esDTrWw&s",
+  "Baby Keem": "https://i.scdn.co/image/ab6761610000e5ebd6f2323c1971fd5a70cd0255",
+  "Gorillaz": "https://i.scdn.co/image/ab67616d00001e02fda889bb57058a4a1b88edcd",
+  "Dave": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOVJQeONEf0Hr3kp0sW8qzhxYZ58MiVC3ZtA&s",
+  "KIDS SEE GHOSTS": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZVB4Qdo3A16p-vsFPrsmBZOCTth_-xKzNJw&s",
+  "Queen": "https://i.scdn.co/image/b040846ceba13c3e9c125d68389491094e7f2982",
+  "Metallica": "https://i.scdn.co/image/ab6761610000e5eb69ca98dd3083f1082d740e44",
+  "Slipknot": "https://i.scdn.co/image/ab6761610000e5ebd0cdb283a7384a0edb665182"
 };
 
 // Imagem padrão para artistas sem foto

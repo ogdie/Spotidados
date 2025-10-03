@@ -54,7 +54,7 @@ export default function RankingAlbuns() {
       {albumDestaque && (
         <div className="flex flex-col items-center gap-2 mb-4">
           {/* Placeholder para SVG #TOP1 */}
-          <div className="w-20 h-20">
+          <div className="w-30h-20">
             <img
               src="/images/top1.svg" // <- substitua pelo SVG real
               alt="#TOP1"
@@ -62,7 +62,7 @@ export default function RankingAlbuns() {
             />
           </div>
 
-          <span className="text-green-500 text-lg">álbum</span>
+          <span className="text-green-500 text-xl mt-2 self-start ml-22">ÁLBUM</span>
 
           <div className="flex items-center gap-4">
             <div className="flex flex-col justify-center">
@@ -75,7 +75,7 @@ export default function RankingAlbuns() {
             </div>
 
             {/* Placeholder para capa do álbum */}
-            <div className="relative w-[160px] h-40 overflow-visible">
+            <div className="relative w-[240px] h-60 overflow-visible">
               <img
                 src="/images/damn.photo.svg"
                 alt={albumDestaque.nome}

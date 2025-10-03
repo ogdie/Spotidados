@@ -54,7 +54,7 @@ export default function RankingMusicas() {
       {musicaDestaque && (
         <div className="flex flex-col items-center gap-2 mb-4">
           {/* Placeholder para SVG #TOP1 */}
-          <div className="w-20 h-20">
+          <div className="w-30h-20">
             <img
               src="/images/top1.svg" // <- substitua pelo seu SVG real
               alt="#TOP1"
@@ -62,8 +62,7 @@ export default function RankingMusicas() {
             />
           </div>
 
-          <span className="text-green-500 text-lg">música</span>
-
+          <span className="text-green-500 text-xl mt-2 self-start ml-22">MÚSICA</span>
           <div className="flex items-center gap-4">
             <div className="flex flex-col justify-center">
               <h1 className="text-3xl font-bold leading-snug text-center font-modern text-gradient">
@@ -75,7 +74,7 @@ export default function RankingMusicas() {
             </div>
 
             {/* Placeholder para imagem do artista */}
-            <div className="relative w-[160px] h-40 overflow-visible">
+            <div className="relative w-[240px] h-60 overflow-visible">
               <img
                 src="/images/7empest.svg"
                 alt={musicaDestaque.nome}

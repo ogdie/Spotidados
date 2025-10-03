@@ -78,8 +78,20 @@ export const artistImages = {
   "2 Chainz": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWy6hs6lBdPNWFsRffPN6_8islZaQTBDBb_w&s",
   "Young Thug": "https://i.scdn.co/image/ab6761610000e5eba22f8a3b713fa2b3486d1d14",
   "Joyner Lucas": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIIzy_lyftbOuhjk2tAStbEdoKkkJTFpfLsw&s",
-  "Wiz Khalifa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxlaOvfXqTvuGMB9NXcMrAYgIalPfLHLk52Q&s"
-
+  "Wiz Khalifa": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxlaOvfXqTvuGMB9NXcMrAYgIalPfLHLk52Q&s",
+  "Mike WiLL Made-It": "https://i.scdn.co/image/ab6761610000e5eba1b8879b06ed8204f15d9bc0",
+  "Richie Campbell": "https://i.scdn.co/image/ab67616d00001e02e24b82b35ed840779206e539",
+  "Lil Uzi Vert": "https://i.scdn.co/image/ab6775700000ee85653ec13a405aa37729878ac9",
+  "Lil Dicky": "https://i.scdn.co/image/ab6761610000e5ebfd1780645d82ecbc3b5253cb",
+  "LON3R JOHNY": "https://i.scdn.co/image/ab6761610000e5eb47dbcb1dff083c6b764811e8",
+  "Flatbush Zombies": "https://i.scdn.co/image/ab67616d00001e025815377ee65f1200d38d3098",
+  "OG Maco": "https://i.scdn.co/image/f061afdb0a005dd34a050db5166929b206734c1d",
+  "Kodak Black": "https://i.scdn.co/image/ab6761610000e5eb70c05cf4dc9a7d3ffd02ba19",
+  "Smokepurpp": "https://i.scdn.co/image/ab6761610000e5ebd97ccc83b24186e62593b76e",
+  "Bruno Mars": "https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd",
+  "Mick Jenkins": "https://i.scdn.co/image/ab6761610000e5eb0363debe6b7819966d3b58d3",
+  "D. LYNCH": "https://i.scdn.co/image/95aab2d79f7db9b6da2ea2e04a552ad84a9f88a1",
+  "Julinho Ksd": "https://i.scdn.co/image/ab6761610000e5ebc67b292ac7cc6b8bd23f51ba"
 };
 
 // Imagem padrão para artistas sem foto

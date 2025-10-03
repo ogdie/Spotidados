@@ -34,14 +34,16 @@ export default function Artistas() {
       {/* Topo */}
       <div className="w-full flex justify-between items-center mb-6 relative max-w-md mx-auto">
         <Voltar />
-        <div className="flex flex-col gap-1 relative">
+        <div className="relative z-50">
           <button
-            className="flex flex-col justify-center items-center p-1"
+            className="p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
-            <span className="w-6 h-0.5 bg-black rounded block"></span>
+            <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+            />
           </button>
           {menuOpen && (
             <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-none z-50 transition ease-out duration-200 transform origin-top-right">

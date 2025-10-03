@@ -58,7 +58,7 @@ export default function Perfil() {
           <img
             src="/images/photo.profile.svg"
             alt="Foto do usuário"
-            className="w-24 h-24 rounded-full object-cover mb-2 cursor-pointer hover:scale-105 transition-transform"
+            className="w-32 h-32 rounded-full object-cover mb-2 cursor-pointer hover:scale-105 transition-transform"
           />
         </Link>
         <span className="text-lg font-semibold">{nome}</span>

@@ -15,7 +15,7 @@ export default function Home() {
           <img
             src="/images/logo.spot.svg"
             alt="Logo Spotidados"
-            className="w-[100px] h-[100px]"
+            className="w-[140px] h-[140px]"
           />
         </div>
 
@@ -63,10 +63,12 @@ export default function Home() {
         <div className="mb-4">
           <video
             src="/images/videovinil.mp4"
-            controls
             autoPlay
             loop
             muted
+            playsInline
+            disablePictureInPicture
+            controlsList="nodownload noplaybackrate nofullscreen noremoteplayback"
             className="h-72 mx-auto rounded-xl shadow-lg"
           />
         </div>

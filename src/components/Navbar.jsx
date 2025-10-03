@@ -1,4 +1,4 @@
-"use client"; // se estiver no Next 13+, para garantir que roda no client
+"use client";
 
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ export default function Navbar() {
         await navigator.share({
           title: "Meu Projeto Spotify",
           text: "Confere esse projeto incrível!",
-          url: window.location.href, // link da página atual
+          url: window.location.href,
         });
       } catch (error) {
         console.log("Usuário cancelou ou deu erro:", error);
@@ -31,18 +31,36 @@ export default function Navbar() {
         width: "100%",
       }}
     >
-      <Link href="/">🏠</Link>
-      <Link href="/pesquisa">🔍</Link>
+      <Link href="/">
+        <img
+          src="/images/HOME.SVG"
+          alt="Home"
+          style={{ width: "24px", height: "24px", cursor: "pointer" }}
+        />
+      </Link>
+
+      <Link href="/pesquisa">
+        <img
+          src="/images/SEARCH.SVG"
+          alt="Pesquisar"
+          style={{ width: "24px", height: "24px", cursor: "pointer" }}
+        />
+      </Link>
+
       <button
         onClick={handleShare}
         style={{
           background: "none",
           border: "none",
-          fontSize: "20px",
+          padding: 0,
           cursor: "pointer",
         }}
       >
-        📤
+        <img
+          src="/images/SHARE.svg"
+          alt="Compartilhar"
+          style={{ width: "24px", height: "24px" }}
+        />
       </button>
     </nav>
   );

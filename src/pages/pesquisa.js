@@ -2,12 +2,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Voltar from "@/components/Voltar";
 import dadosHistory from "../data/history.json";
+import { getArtistImage } from "@/utils/artistImages.js"; // utilitário das imagens
 
 export default function Pesquisa() {
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false); // controla o dropdown
 
-  // Pega apenas as 10 primeiras músicas do JSON
+  // Pega apenas as 10 primeiras músicas do JSON e filtra pela busca
   const musicasFiltradas = dadosHistory
     .slice(0, 10)
     .filter((m) =>
@@ -23,7 +24,7 @@ export default function Pesquisa() {
         <Voltar />
         <div className="relative z-50">
           <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 no-hover">
-          <img
+            <img
               src="/images/icon.menu.svg"
               alt="Abrir Menu"
               className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform invert sepia saturate-200 hue-rotate-90"
@@ -70,8 +71,14 @@ export default function Pesquisa() {
             className="flex items-center justify-between bg-white/90 rounded-lg p-2 shadow"
           >
             <div className="flex items-center gap-3">
-              {/* Placeholder de capa */}
-              <div className="w-12 h-12 bg-gray-300 rounded-sm flex-shrink-0"></div>
+              {/* Imagem do artista */}
+              <div className="w-12 h-12 rounded-sm flex-shrink-0 overflow-hidden">
+                <img
+                  src={getArtistImage(m.master_metadata_album_artist_name)}
+                  alt={m.master_metadata_track_name || "Música desconhecida"}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="font-semibold text-black">
                   {m.master_metadata_track_name || "Música desconhecida"}

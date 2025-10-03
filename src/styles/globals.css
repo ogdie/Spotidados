@@ -27,9 +27,11 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
 }
 
-/* Modern readable font for headings and highlights */
+/* Fontes modernas */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
 .font-modern {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -37,7 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Gradient text utilities */
+/* Gradientes de texto */
 .text-gradient {
   background: linear-gradient(90deg, #f6ad55, #34d399, #9ca3af);
   -webkit-background-clip: text;
@@ -52,7 +54,7 @@ body {
   color: transparent;
 }
 
-/* Global subtle green hover/active for all buttons */
+/* Botões globais */
 button {
   transition: background-color 150ms ease, transform 150ms ease;
 }
@@ -62,8 +64,6 @@ button:hover {
 button:active {
   background-color: rgba(52, 211, 153, 0.15);
 }
-
-/* Opt-out utility: disable global hover/active background and transform */
 .no-hover:hover,
 .no-hover:active {
   background-color: transparent !important;
@@ -71,4 +71,97 @@ button:active {
 }
 .no-hover:focus {
   outline: none;
+}
+
+/* ----------------- Media Queries Desktop ----------------- */
+
+/* Tablet / Desktop pequeno */
+@media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+
+  .max-w-md {
+    max-width: 720px;
+  }
+
+  .text-sm {
+    font-size: 0.95rem;
+  }
+
+  .flex-col-desktop {
+    flex-direction: column !important;
+  }
+}
+
+/* Desktop normal */
+@media (min-width: 1024px) {
+  /* Centraliza conteúdo principal e aumenta largura dos cards */
+  .max-w-md {
+    max-width: 900px;
+  }
+
+  /* Topo do artista (imagem + nome) */
+  .artista-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .artista-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Card do artista centralizado */
+  .card-artista {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Scroll horizontal de artistas mantém-se horizontal */
+  .scroll-artistas {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+
+  /* Ajustes de texto */
+  .text-sm {
+    font-size: 1rem;
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  /* Botões maiores */
+  button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .w-36 {
+    width: 144px;
+    height: 144px;
+  }
+}
+
+/* Desktop grande / widescreen */
+@media (min-width: 1280px) {
+  .max-w-md {
+    max-width: 1100px;
+  }
+
+  .text-3xl {
+    font-size: 2.5rem;
+  }
+
+  .gap-desktop {
+    gap: 2rem;
+  }
 }

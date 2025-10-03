@@ -29,9 +29,21 @@ function parseTsToDate(ts) {
   return null;
 }
 
+// ---------- pega a última data real do histórico ----------
+function getUltimaData() {
+  let maxDate = null;
+  dadosHistory.forEach(m => {
+    const d = parseTsToDate(m.ts);
+    if (d && (!maxDate || d > maxDate)) {
+      maxDate = d;
+    }
+  });
+  return maxDate || new Date(); // fallback pro hoje se não tiver nada
+}
+
 // ---------- FUNÇÃO AUXILIAR PARA FILTRAR POR PERÍODO ----------
 function filtrarPorPeriodo(periodo) {
-  const agora = new Date();
+  const agora = getUltimaData(); // usa a última data real do JSON
   let inicio;
 
   switch (periodo) {
@@ -52,7 +64,7 @@ function filtrarPorPeriodo(periodo) {
 
   return dadosHistory.filter(m => {
     const d = parseTsToDate(m.ts);
-    return d && d >= inicio;
+    return d && d >= inicio && d <= agora;
   });
 }
 
@@ -107,7 +119,7 @@ export function estacaoMaisOuvida() {
     if ([12, 1, 2].includes(month)) contagemEstacao["Verão"]++;
     else if ([3, 4, 5].includes(month)) contagemEstacao["Outono"]++;
     else if ([6, 7, 8].includes(month)) contagemEstacao["Inverno"]++;
-    else if ([9, 10, 11].includes(month)) contagemEstacao["Primavera"]++;
+    else contagemEstacao["Primavera"]++;
   });
   let max = 0, estacao = "";
   for (const e in contagemEstacao) {
@@ -207,4 +219,72 @@ export function top20MusicasDoArtista(artista, periodo = "sempre") {
   const lista = Object.keys(contagemMusicas).map(n => ({ nome: n, ms_played: contagemMusicas[n] }));
   lista.sort((a, b) => b.ms_played - a.ms_played);
   return lista.slice(0, 20);
+}
+
+// ---------- NOVAS FUNÇÕES PARA INFORMAÇÕES DO ARTISTA ----------
+
+// Total de plays do artista
+export function totalPlaysDoArtista(artista, periodo = "sempre") {
+  const dados = filtrarPorPeriodo(periodo).filter(
+    m => m.master_metadata_album_artist_name === artista
+  );
+  return dados.length;
+}
+
+// Total de músicas diferentes do artista
+export function totalMusicasDoArtista(artista, periodo = "sempre") {
+  const dados = filtrarPorPeriodo(periodo).filter(
+    m => m.master_metadata_album_artist_name === artista
+  );
+  const musicas = new Set(dados.map(m => m.master_metadata_track_name));
+  return musicas.size;
+}
+
+// Total de minutos ouvidos do artista
+export function totalMinutosDoArtista(artista, periodo = "sempre") {
+  const dados = filtrarPorPeriodo(periodo).filter(
+    m => m.master_metadata_album_artist_name === artista
+  );
+  const totalMs = dados.reduce((sum, m) => sum + (m.ms_played || 0), 0);
+  return Math.floor(totalMs / 60000);
+}
+
+// % das plays do artista dentro do total
+export function percentualPlaysDoArtista(artista, periodo = "sempre") {
+  const total = filtrarPorPeriodo(periodo).length;
+  if (!total) return 0;
+  const totalArtista = totalPlaysDoArtista(artista, periodo);
+  return ((totalArtista / total) * 100).toFixed(1);
+}
+
+// Estação mais ouvida do artista
+export function estacaoMaisOuvidaDoArtista(artista, periodo = "sempre") {
+  const dados = filtrarPorPeriodo(periodo).filter(
+    m => m.master_metadata_album_artist_name === artista
+  );
+  const contagemEstacao = { "Verão": 0, "Outono": 0, "Inverno": 0, "Primavera": 0 };
+  dados.forEach(m => {
+    const d = parseTsToDate(m.ts);
+    if (!d) return;
+    const month = d.getMonth() + 1;
+    if ([12, 1, 2].includes(month)) contagemEstacao["Verão"]++;
+    else if ([3, 4, 5].includes(month)) contagemEstacao["Outono"]++;
+    else if ([6, 7, 8].includes(month)) contagemEstacao["Inverno"]++;
+    else contagemEstacao["Primavera"]++;
+  });
+  let max = 0, estacao = "";
+  for (const e in contagemEstacao) {
+    if (contagemEstacao[e] > max) {
+      max = contagemEstacao[e];
+      estacao = e;
+    }
+  }
+  return estacao;
+}
+
+// Posição do artista no top 100 (desde sempre)
+export function posicaoNoTop100(artista) {
+  const top100 = top100Artistas("sempre");
+  const index = top100.findIndex(a => a.nome === artista);
+  return index >= 0 ? index + 1 : null;
 }

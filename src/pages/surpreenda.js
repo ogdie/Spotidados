@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Voltar from "../components/Voltar.jsx";
 import {
@@ -15,11 +15,15 @@ import {
 export default function Surpreenda() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Cards com valores e cores definidas para alternar
+  // Contadores animados
+  const [totalPlays, setTotalPlays] = useState(0);
+  const [mediaDiaria, setMediaDiaria] = useState(0);
+  const [totalMusicas, setTotalMusicas] = useState(0);
+
   const cards = [
-    { title: "Total de reproduções", value: contarTotalPlays(), color: "green" },
-    { title: "Média diária de plays", value: mediaDiariaPlays(), color: "purple" },
-    { title: "Número de músicas ouvidas", value: contarTotalMusicas(), color: "purple" },
+    { title: "Total de reproduções", value: totalPlays, target: contarTotalPlays(), color: "green" },
+    { title: "Média diária de plays", value: mediaDiaria, target: mediaDiariaPlays(), color: "purple" },
+    { title: "Número de músicas ouvidas", value: totalMusicas, target: contarTotalMusicas(), color: "purple" },
     { title: "Estação mais ouvida", value: estacaoMaisOuvida(), color: "green" },
     { title: "Hora do dia mais ouvida", value: horarioMaisOuvido(), color: "green" },
     { title: "Artista mais ouvido", value: artistaMaisOuvido(), color: "purple" },
@@ -30,6 +34,26 @@ export default function Surpreenda() {
     green: "bg-green-200",
     purple: "bg-purple-200",
   };
+
+  // Animação dos contadores
+  useEffect(() => {
+    const duration = 800; // duração em ms
+    const stepTime = 20;
+    const steps = Math.ceil(duration / stepTime);
+
+    const increment = (target) => target / steps;
+
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      setTotalPlays(prev => Math.min(prev + increment(contarTotalPlays()), contarTotalPlays()));
+      setMediaDiaria(prev => Math.min(prev + increment(mediaDiariaPlays()), mediaDiariaPlays()));
+      setTotalMusicas(prev => Math.min(prev + increment(contarTotalMusicas()), contarTotalMusicas()));
+      if (currentStep >= steps) clearInterval(interval);
+    }, stepTime);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6"
@@ -66,19 +90,21 @@ export default function Surpreenda() {
             className="w-[215px] h-[71px] hover:scale-105 transition-transform"
           />
 
+          TUDO SOBRE SEUS PLAYS
         </h1>
         <p className="text-green-500 text-lg mt-2 text-left">você em dados</p>
       </div>
 
-      {/* Cards - tamanho das bordas, dos cards, MELHORAR CENTRALIZAR LETRAS, VERIFICAR A FONTE*/}
-      
+      {/* Cards */}
       <div className="grid grid-cols-2 gap-4 w-full max-w-md mb-8">
         {cards.slice(0, 2).map((card, index) => (
           <div
             key={index}
             className={`border-2 border-orange-400 rounded-full p-4 flex flex-col items-center justify-center ${colorMap[card.color]}`}
           >
-            <span className="text-2xl font-bold text-purple-700">{card.value}</span>
+            <span className="text-2xl font-bold text-purple-700">
+              {typeof card.value === "number" ? Math.floor(card.value) : card.value}
+            </span>
             <span className="text-center mt-2 text-green-800">{card.title}</span>
           </div>
         ))}
@@ -87,7 +113,9 @@ export default function Surpreenda() {
             key={index + 2}
             className={`border-2 border-orange-400 rounded-full p-4 flex flex-col items-center justify-center ${colorMap[card.color]}`}
           >
-            <span className="text-2xl font-bold text-purple-700">{card.value}</span>
+            <span className="text-2xl font-bold text-purple-700">
+              {typeof card.value === "number" ? Math.floor(card.value) : card.value}
+            </span>
             <span className="text-center mt-2 text-green-800">{card.title}</span>
           </div>
         ))}
@@ -96,7 +124,9 @@ export default function Surpreenda() {
             key={index + 4}
             className={`border-2 border-orange-400 rounded-full p-4 flex flex-col items-center justify-center ${colorMap[card.color]}`}
           >
-            <span className="text-2xl font-bold text-purple-700">{card.value}</span>
+            <span className="text-2xl font-bold text-purple-700">
+              {typeof card.value === "number" ? Math.floor(card.value) : card.value}
+            </span>
             <span className="text-center mt-2 text-green-800">{card.title}</span>
           </div>
         ))}
@@ -104,7 +134,9 @@ export default function Surpreenda() {
         <div
           className={`border-2 border-orange-400 rounded-full p-4 flex flex-col items-center justify-center ${colorMap[cards[6].color]} col-span-2`}
         >
-          <span className="text-2xl font-bold text-purple-700">{cards[6].value}</span>
+          <span className="text-2xl font-bold text-purple-700">
+            {cards[6].value}
+          </span>
           <span className="text-center mt-2 text-green-800">{cards[6].title}</span>
         </div>
       </div>

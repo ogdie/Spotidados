@@ -75,6 +75,7 @@ export default function Menu() {
       </div>
 
       {/* Botões principais com efeito hover */}
+<<<<<<< Updated upstream
       <div className="flex flex-col gap-6 w-full max-w-xs mt-12">
         {[
           { href: "/surpreenda", label: "ME SURPREENDA" },
@@ -92,7 +93,28 @@ export default function Menu() {
             <div className="absolute inset-0 rounded-full bg-green-900/30 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none"></div>
           </Link>
         ))}
+=======
+    <div className="flex flex-col gap-6 w-full items-center mt-12">
+  {[
+    { href: "/surpreenda", label: "ME SURPREENDA" },
+    { href: "/artistas", label: "SOBRE OS ARTISTAS" },
+    { href: "/ranking", label: "RANKING" },
+  ].map(({ href, label }) => (
+    <Link href={href} key={label}>
+      <div className="relative group w-[280px] h-[86px]">
+        <button
+          className="w-full h-full rounded-full text-green-700 font-semibold border border-yellow-500 shadow-lg relative z-10 transition-colors"
+          style={{ backgroundColor: "#e6d0f0b6" }}
+        >
+          {label}
+        </button>
+        <div className="absolute inset-0 rounded-full bg-green-900 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+>>>>>>> Stashed changes
       </div>
+    </Link>
+  ))}
+</div>
+
     </div>
   );
 }

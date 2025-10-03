@@ -10,12 +10,13 @@ import {
   horarioMaisOuvido, 
   estacaoMaisOuvidaDoArtista 
 } from "../../utils/dataProcessing.js";
+import { getArtistImage } from "../../utils/artistImages.js"; // <-- import novo
 
 export default function Artistas() {
-  // Adicione a propriedade 'imagem' para cada artista
+  // Adicione a propriedade 'imagem' para cada artista (agora usando getArtistImage)
   const artistas = top100Artistas().map((artista) => ({
     ...artista,
-    imagem: artista.nome === "Kendrick" ? "/images/foto.kendrick.svg" : "/images/artista-placeholder.png"
+    imagem: getArtistImage(artista.nome),
   }));
 
   const [artistaSelecionado, setArtistaSelecionado] = useState(
@@ -82,8 +83,8 @@ export default function Artistas() {
           >
             <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center">
               <img
-                src={'/images/kendrick2.svg'}
-                alt={'Kendrick Lamar'}
+                src={getArtistImage(artista.nome)}   // <-- aqui
+                alt={artista.nome}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -103,7 +104,7 @@ export default function Artistas() {
             </div>
             <div className="w-28 h-28 rounded-2xl overflow-hidden">
               <img
-                src={'/images/kendrick2.svg'}
+                src={getArtistImage(artistaSelecionado)}   // <-- aqui
                 alt={artistaSelecionado}
                 className="w-full h-full object-cover"
               />

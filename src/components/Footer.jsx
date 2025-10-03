@@ -11,7 +11,7 @@ export default function Footer() {
         borderTop: '1px solid rgba(255,255,255,0.15)',
       }}
     >
-      © 2025 SPIRA. Todos os direitos reservados.
+      © 2025 Spotidados. Todos os direitos reservados.
     </footer>
   );
 }

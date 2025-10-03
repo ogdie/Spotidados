@@ -70,11 +70,13 @@ export default function ArtistaDetalhe() {
           <span className="text-green-500 text-lg">artista</span>
         </div>
         <div className="ml-auto">
-          <img
-            src="/user-placeholder.png"
-            alt={artistaSelecionado.nome}
-            className="w-36 h-36 rounded-2xl object-cover"
-          />
+          <Link href="/perfil">
+            <img
+              src="/user-placeholder.png"
+              alt={artistaSelecionado.nome}
+              className="w-36 h-36 rounded-2xl object-cover cursor-pointer hover:scale-105 transition-transform"
+            />
+          </Link>
         </div>
       </div>
 

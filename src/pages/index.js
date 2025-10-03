@@ -48,11 +48,13 @@ export default function Home() {
           <span className="text-white text-lg">Aurora Maria</span>
           <span className="text-green-500 text-sm">music is coming!</span>
         </div>
-        <img
-          src="/images/photo.profile.svg"
-          alt="Foto do usuário"
-          className="w-16 h-16 rounded-full object-cover"
-        />
+        <Link href="/perfil">
+          <img
+            src="/images/photo.profile.svg"
+            alt="Foto do usuário"
+            className="w-16 h-16 rounded-full object-cover cursor-pointer hover:scale-105 transition-transform"
+          />
+        </Link>
       </div>
 
       {/* Seção central com vinil, texto e controles */}

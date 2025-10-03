@@ -4,7 +4,7 @@ export default function Footer() {
       style={{
         height: '24px',    // bem pequeno
         fontSize: '12px',  // letras pequenas
-        color: '#555',
+        color: '#9ca3af',
         backgroundColor: 'transparent',
         textAlign: 'center',
         lineHeight: '24px', // centraliza verticalmente

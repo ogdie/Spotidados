@@ -45,20 +45,22 @@ export default function Perfil() {
       <div className="w-full flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Meu Perfil</h1>
         <button
-          className="flex items-center gap-1 text-green-400 font-semibold"
+          className="text-white"
           onClick={() => setEditando(!editando)}
         >
-          ✏️ Edit
+          Edit
         </button>
       </div>
 
       {/* Foto e nome */}
       <div className="flex flex-col items-center mb-6">
-        <img
-          src="/user-placeholder.png"
-          alt="Foto do usuário"
-          className="w-24 h-24 rounded-full object-cover mb-2"
-        />
+        <Link href="/perfil">
+          <img
+            src="/images/photo.profile.svg"
+            alt="Foto do usuário"
+            className="w-24 h-24 rounded-full object-cover mb-2 cursor-pointer hover:scale-105 transition-transform"
+          />
+        </Link>
         <span className="text-lg font-semibold">{nome}</span>
       </div>
 

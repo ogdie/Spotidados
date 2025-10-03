@@ -22,11 +22,12 @@ export default function Pesquisa() {
       <div className="w-full flex items-center justify-between mb-6 px-2 relative">
         <Voltar />
         <div className="relative z-50">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
-            <img
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 no-hover">
+          <img
               src="/images/icon.menu.svg"
               alt="Abrir Menu"
-              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform invert sepia saturate-200 hue-rotate-90"
+              style={{ filter: "invert(50%) sepia(100%) saturate(500%) hue-rotate(120deg)" }}
             />
           </button>
           {menuOpen && (

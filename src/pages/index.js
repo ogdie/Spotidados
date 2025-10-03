@@ -21,11 +21,12 @@ export default function Home() {
 
         {/* Botão Menu - Direita */}
         <div className="ml-auto z-50">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
-            <img
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 no-hover">
+          <img
               src="/images/icon.menu.svg"
-              alt="Botão Menu"
-              className="w-[30px] h-[30px] cursor-pointer"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform invert sepia saturate-200 hue-rotate-90"
+              style={{ filter: "invert(50%) sepia(100%) saturate(500%) hue-rotate(120deg)" }}
             />
           </button>
 

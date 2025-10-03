@@ -36,7 +36,7 @@ export default function Artistas() {
         <Voltar />
         <div className="relative z-50">
           <button
-            className="p-2"
+            className="p-2 no-hover"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <img

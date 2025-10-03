@@ -45,14 +45,17 @@ export default function Surpreenda() {
         <Voltar />
         <div className="relative z-50">
           <button onClick={() => setMenuOpen(prev => !prev)} className="p-2">
-            <div className="space-y-1">
-              <span className="block w-6 h-0.5 bg-white rounded"></span>
-              <span className="block w-6 h-0.5 bg-white rounded"></span>
-              <span className="block w-6 h-0.5 bg-white rounded"></span>
-            </div>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 no-hover">
+          <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform invert sepia saturate-200 hue-rotate-90"
+              style={{ filter: "invert(50%) sepia(100%) saturate(500%) hue-rotate(120deg)" }}
+            />
+          </button>
           </button>
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">
+            <div className="absolute right-0 mt-2 w-32 bg-white shadow-none rounded border border-gray-200 z-50">
               <Link href="/perfil" className="block px-4 py-2 text-gray-800 hover:bg-purple-100 hover:text-purple-700">
                 Perfil
               </Link>

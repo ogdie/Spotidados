@@ -8,7 +8,7 @@ export default function Home() {
     <div
       className="flex flex-col items-center justify-start min-h-screen bg-cover bg-center bg-no-repeat text-black px-4 pt-6"
       style={{
-        backgroundImage: "url('/images/background2.png')",
+        backgroundImage: "url('/images/background.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

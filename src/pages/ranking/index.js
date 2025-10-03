@@ -1,50 +1,66 @@
+import { useState } from "react";
 import Voltar from "@/components/Voltar.jsx";
 import Link from "next/link";
 
 export default function Ranking() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div
-      className="flex flex-col items-center min-h-screen px-4 pt-6 bg-cover bg-center bg-no-repeat"
+      className="flex flex-col items-center justify-start min-h-screen px-4 pt-6 text-white"
       style={{
         backgroundImage: "url('/images/background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Topo: botão voltar */}
-      <div className="w-full max-w-md mx-auto mb-6">
+      {/* TOPO */}
+      <div className="w-full flex items-center justify-between mb-8 px-2">
         <Voltar />
+        <div className="relative z-50">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
+            <img
+              src="/images/icon.menu.svg"
+              alt="Abrir Menu"
+              className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform"
+            />
+          </button>
+          {menuOpen && (
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <ul className="flex flex-col">
+                <li>
+                  <Link
+                    href="/perfil"
+                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors"
+                  >
+                    Perfil
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Título */}
-      <h1 className="text-3xl font-bold mb-6 text-white">🏆 Ranking</h1>
-
-      {/* Botões principais */}
-      <div className="flex flex-col gap-4 w-full max-w-xs">
-        <Link href="/ranking/artistas">
-          <button className="w-full py-4 rounded-full bg-white/80 text-green-500 font-semibold border border-orange-400 hover:bg-orange-400 hover:text-white transition-colors">
-            #TOP 100 ARTISTAS
-          </button>
-        </Link>
-
-        <Link href="/ranking/musicas">
-          <button className="w-full py-4 rounded-full bg-white/80 text-green-500 font-semibold border border-orange-400 hover:bg-orange-400 hover:text-white transition-colors">
-            #TOP 100 MÚSICAS
-          </button>
-        </Link>
-
-        <Link href="/ranking/albuns">
-          <button className="w-full py-4 rounded-full bg-white/80 text-green-500 font-semibold border border-orange-400 hover:bg-orange-400 hover:text-white transition-colors">
-            #TOP 100 ÁLBUNS
-          </button>
-        </Link>
-      </div>
-
-      {/* Placeholder de fundo caso queira adicionar algum elemento decorativo */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src="/images/placeholder.png"
-          alt="placeholder background"
-          className="w-full h-full object-cover"
-        />
+      {/* BOTÕES PRINCIPAIS */}
+      <div className="flex flex-col gap-6 w-full items-center max-w-md mt-20">
+        {[
+          { href: "/ranking/artistas", label: "#TOP 100 ARTISTAS" },
+          { href: "/ranking/musicas", label: "#TOP 100 MÚSICAS" },
+          { href: "/ranking/albuns", label: "#TOP 100 ÁLBUNS" },
+        ].map(({ href, label }) => (
+          <Link href={href} key={label} className="w-full">
+            <div className="relative group w-full h-[80px]">
+              <button
+                className="w-full h-full rounded-full text-green-400 font-semibold border border-purple-400 shadow-lg relative z-10 transition-transform hover:scale-105 bg-gray-800"
+              >
+                {label}
+              </button>
+              <div className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

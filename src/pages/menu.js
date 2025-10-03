@@ -68,58 +68,32 @@ export default function Menu() {
            <img
               src="/images/clique.descubra.svg"
               alt="clique"
-              className="w-[50x] h-[50px] cursor-pointer hover:scale-105 transition-transform"
+              className="w-[50px] h-[50px] cursor-pointer hover:scale-105 transition-transform" // Corrigido de w-[50x] para w-[50px]
             />
           <span className="block text-green-400 text-lg mt-2">TEXTO ALTERAR</span>
         </h1>
       </div>
 
       {/* Botões principais com efeito hover */}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      <div className="flex flex-col gap-6 w-full max-w-xs mt-12">
+      <div className="flex flex-col gap-6 w-full items-center mt-12">
         {[
           { href: "/surpreenda", label: "ME SURPREENDA" },
           { href: "/artistas", label: "SOBRE OS ARTISTAS" },
           { href: "/ranking", label: "RANKING" },
         ].map(({ href, label }) => (
-          <Link
-            href={href}
-            key={label}
-            className="relative group w-full block"
-          >
-            <button className="w-full py-4 rounded-full bg-white/80 text-green-700 font-semibold border border-yellow-500 shadow-md relative z-10">
-              {label}
-            </button>
-            <div className="absolute inset-0 rounded-full bg-green-900/30 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none"></div>
+          <Link href={href} key={label}>
+            <div className="relative group w-[280px] h-[86px]">
+              <button
+                className="w-full h-full rounded-full text-green-700 font-semibold border border-yellow-500 shadow-lg relative z-10 transition-colors"
+                style={{ backgroundColor: "#e6d0f0b6" }}
+              >
+                {label}
+              </button>
+              <div className="absolute inset-0 rounded-full bg-green-900 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
+            </div>
           </Link>
         ))}
-=======
-=======
->>>>>>> Stashed changes
-    <div className="flex flex-col gap-6 w-full items-center mt-12">
-  {[
-    { href: "/surpreenda", label: "ME SURPREENDA" },
-    { href: "/artistas", label: "SOBRE OS ARTISTAS" },
-    { href: "/ranking", label: "RANKING" },
-  ].map(({ href, label }) => (
-    <Link href={href} key={label}>
-      <div className="relative group w-[280px] h-[86px]">
-        <button
-          className="w-full h-full rounded-full text-green-700 font-semibold border border-yellow-500 shadow-lg relative z-10 transition-colors"
-          style={{ backgroundColor: "#e6d0f0b6" }}
-        >
-          {label}
-        </button>
-        <div className="absolute inset-0 rounded-full bg-green-900 opacity-0 group-hover:opacity-30 transition-opacity z-0"></div>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       </div>
-    </Link>
-  ))}
-</div>
 
     </div>
   );

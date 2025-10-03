@@ -53,6 +53,15 @@ export default function RankingArtistas() {
         {/* Artista em destaque */}
         {artistaDestaque && (
           <div className="flex flex-col items-center gap-2 mb-4">
+            {/* Placeholder para SVG #TOP1 */}
+            <div className="w-20 h-20">
+              <img
+                src="/images/top1.svg" // <- substitua pelo SVG real
+                alt="#TOP1"
+                className="w-full h-full object-contain"
+              />
+            </div>
+
             <span className="text-green-500 text-lg mt-2">artista</span>
             <div className="flex items-center gap-4">
               <div className="flex flex-col justify-center">
@@ -61,12 +70,14 @@ export default function RankingArtistas() {
                   {artistaDestaque.nome.split(" ").slice(1).join(" ")}
                 </h1>
               </div>
-              <img
-                src="/images/kendrick.jpg"
-                alt={artistaDestaque.nome}
-                className="rounded-3xl object-cover h-full max-h-40"
-                style={{ aspectRatio: "1/1" }}
-              />
+              <div className="relative w-[160px] h-40 overflow-visible">
+                <img
+                  src="/images/foto.kendrick.svg"
+                  alt={artistaDestaque.nome}
+                  className="rounded-3xl object-contain w-full h-full"
+                  style={{ aspectRatio: "1/1" }}
+                />
+              </div>
             </div>
           </div>
         )}

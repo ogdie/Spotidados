@@ -19,9 +19,12 @@ export default function RankingAlbuns() {
   const albumDestaque = lista[0];
 
   return (
-    <div className="flex flex-col items-center min-h-screen px-4 pt-6">
+    <div
+      className="flex flex-col items-center min-h-screen px-4 pt-6 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/background2.png')" }}
+    >
       {/* Topo: Voltar + Dropdown */}
-      <div className="w-full flex justify-between items-center mb-6 relative">
+      <div className="w-full flex justify-between items-center mb-6 relative max-w-md mx-auto">
         <Voltar href="/ranking" />
         <div className="flex flex-col gap-1 relative">
           <button
@@ -45,29 +48,42 @@ export default function RankingAlbuns() {
         </div>
       </div>
 
-      {/* Álbum em destaque: #TOP1 + texto verde "álbum" + nome + capa */}
+      {/* Álbum em destaque */}
       {albumDestaque && (
         <div className="flex flex-col items-center gap-2 mb-4">
-          <span className="text-black font-bold text-3xl">#TOP1</span>
+          {/* Placeholder para SVG #TOP1 */}
+          <div className="w-20 h-20">
+            <img
+              src="/images/top1.svg" // <- substitua pelo SVG real
+              alt="#TOP1"
+              className="w-full h-full object-contain"
+            />
+          </div>
+
           <span className="text-green-500 text-lg">álbum</span>
+
           <div className="flex items-center gap-4">
             <div className="flex flex-col justify-center">
               <h1 className="text-3xl font-bold leading-snug text-center">
                 {albumDestaque.nome}
               </h1>
             </div>
-            <img
-              src="/album-placeholder.png" // Substituir pela capa real se disponível
-              alt={albumDestaque.nome}
-              className="rounded-3xl object-cover h-full max-h-40"
-              style={{ aspectRatio: "1/1" }}
-            />
+
+            {/* Placeholder para capa do álbum */}
+            <div className="relative w-[160px] h-40 overflow-visible">
+              <img
+                src="/images/damn.photo.svg"
+                alt={albumDestaque.nome}
+                className="rounded-3xl object-contain w-full h-full"
+                style={{ aspectRatio: "1/1" }}
+              />
+            </div>
           </div>
         </div>
       )}
 
       {/* Três botões ovais: Artistas, Músicas, Álbuns */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-wrap justify-center gap-2 mb-4 max-w-md mx-auto">
         {["Artistas", "Músicas", "Álbuns"].map((btn, idx) => (
           <button
             key={idx}
@@ -83,12 +99,14 @@ export default function RankingAlbuns() {
       </div>
 
       {/* Lista scroll vertical dos álbuns */}
-      <div className="w-full max-w-xl overflow-y-auto h-[60vh] mb-4">
+      <div className="w-full max-w-md overflow-y-auto h-[60vh] mb-4">
         <ListaRanking itens={lista} tipo="albuns" />
       </div>
 
-      {/* Filtro de período */}
-      <FiltroPeriodo periodo={periodo} setPeriodo={setPeriodo} />
+      {/* Filtro de período com botões menores */}
+      <div className="px-4 w-full max-w-md mx-auto mb-6">
+        <FiltroPeriodo periodo={periodo} setPeriodo={setPeriodo} />
+      </div>
     </div>
   );
 }

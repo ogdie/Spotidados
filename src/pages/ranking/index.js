@@ -14,7 +14,7 @@ export default function Ranking() {
         <Voltar />
         <div className="relative z-50">
           <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 no-hover">
-            < <img
+            < img
               src="/images/icon.menu.svg"
               alt="Abrir Menu"
               className="w-[50px] h-[40px] cursor-pointer hover:scale-105 transition-transform invert sepia saturate-200 hue-rotate-90"

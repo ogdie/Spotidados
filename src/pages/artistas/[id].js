@@ -31,17 +31,15 @@ export default function ArtistaDetalhe() {
 
   if (!artistaSelecionado) return <div>Artista não encontrado</div>;
 
-  const periodos = ["sempre", "1ano", "6meses", "4semanas"];
-
   return (
     <div className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6 text-white">
-      
+
       {/* Topo com botão voltar e dropdown perfil */}
       <div className="w-full flex items-center justify-between mb-6 px-2 relative">
         <Voltar />
         <div className="relative z-50">
           <button
-            className="p-2 no-hover"
+            className="p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <img
@@ -49,7 +47,6 @@ export default function ArtistaDetalhe() {
               alt={artistaSelecionado.nome}
               className="w-36 h-36 rounded-2xl object-cover cursor-pointer hover:scale-105 transition-transform"
             />
-
           </button>
 
           {menuOpen && (
@@ -72,15 +69,7 @@ export default function ArtistaDetalhe() {
           </h1>
           <span className="text-green-500 text-lg">artista</span>
         </div>
-        <div className="ml-auto">
-          <Link href="/perfil">
-            <img
-              src="/user-placeholder.png"
-              alt={artistaSelecionado.nome}
-              className="w-36 h-36 rounded-2xl object-cover cursor-pointer hover:scale-105 transition-transform"
-            />
-          </Link>
-        </div>
+        {/* Removemos a imagem placeholder duplicada */}
       </div>
 
       {/* Lista de músicas com scroll vertical */}
@@ -93,7 +82,7 @@ export default function ArtistaDetalhe() {
         ))}
       </div>
 
-      {/* Filtro de período - mesmo componente e estilo do ranking */}
+      {/* Filtro de período */}
       <div className="px-4 w-full max-w-md mx-auto mb-6">
         <FiltroPeriodo periodo={periodo} setPeriodo={setPeriodo} />
       </div>

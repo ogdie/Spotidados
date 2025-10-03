@@ -7,12 +7,6 @@ export default function Home() {
   return (
     <div
       className="flex flex-col items-center justify-start min-h-screen bg-cover bg-center bg-no-repeat text-black px-4 pt-6"
-      style={{
-        backgroundImage: "url('/images/background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
     >
       {/* Topo */}
       <div className="w-full flex items-center justify-between mb-6 px-4 relative">
@@ -36,8 +30,11 @@ export default function Home() {
           </button>
 
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">
-              <Link href="/perfil" className="block px-4 py-2 hover:bg-green-100">
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-none z-50 transition ease-out duration-200 transform origin-top-right">
+              <Link
+                href="/perfil"
+                className="block px-4 py-3 text-sm text-purple-700 hover:bg-green-100 active:bg-green-200 transition-colors"
+              >
                 Perfil
               </Link>
             </div>

@@ -8,12 +8,6 @@ export default function Ranking() {
   return (
     <div
       className="flex flex-col items-center justify-start min-h-screen px-4 pt-6 text-white"
-      style={{
-        backgroundImage: "url('/images/background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
     >
       {/* TOPO */}
       <div className="w-full flex items-center justify-between mb-8 px-2">
@@ -27,12 +21,12 @@ export default function Ranking() {
             />
           </button>
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-none overflow-hidden transition ease-out duration-200 transform origin-top-right z-50">
               <ul className="flex flex-col">
                 <li>
                   <Link
                     href="/perfil"
-                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors"
+                    className="block px-4 py-3 text-sm text-purple-700 hover:bg-green-100 active:bg-green-200 transition-colors"
                   >
                     Perfil
                   </Link>

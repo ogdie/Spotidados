@@ -39,12 +39,6 @@ export default function Surpreenda() {
   return (
     <div
       className="flex flex-col items-center min-h-screen px-4 pt-6 text-white"
-      style={{
-        backgroundImage: "url('/images/background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
     >
       {/* Topo */}
       <div className="w-full flex justify-between items-center mb-6 px-2">

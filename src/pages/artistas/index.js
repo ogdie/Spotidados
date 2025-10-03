@@ -29,7 +29,6 @@ export default function Artistas() {
   return (
     <div
       className="flex flex-col items-center min-h-screen bg-cover bg-center bg-no-repeat px-4 pt-6"
-      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       {/* Topo */}
       <div className="w-full flex justify-between items-center mb-6 relative max-w-md mx-auto">
@@ -44,8 +43,8 @@ export default function Artistas() {
             <span className="w-6 h-0.5 bg-black rounded block"></span>
           </button>
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">
-              <Link href="/perfil" className="block px-4 py-2 hover:bg-green-100">
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-none z-50 transition ease-out duration-200 transform origin-top-right">
+              <Link href="/perfil" className="block px-4 py-3 text-sm text-purple-700 hover:bg-green-100 active:bg-green-200 transition-colors">
                 Perfil
               </Link>
             </div>
@@ -81,7 +80,7 @@ export default function Artistas() {
             }`}
             onClick={() => setArtistaSelecionado(artista.nome)}
           >
-            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center">
               <img
                 src={'/images/kendrick2.svg'}
                 alt={'Kendrick Lamar'}
@@ -102,7 +101,7 @@ export default function Artistas() {
               <h2 className="text-xl font-bold">{artistaSelecionado}</h2>
               <span className="text-green-500 text-sm">Artista</span>
             </div>
-            <div className="w-20 h-20 rounded-2xl overflow-hidden">
+            <div className="w-28 h-28 rounded-2xl overflow-hidden">
               <img
                 src={'/images/kendrick2.svg'}
                 alt={artistaSelecionado}

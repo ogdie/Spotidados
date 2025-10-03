@@ -21,7 +21,6 @@ export default function RankingArtistas() {
   return (
     <div
       className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat text-white"
-      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       {/* Container centralizado */}
       <div className="flex flex-col items-center px-4 pt-6 w-full max-w-md mx-auto">
@@ -37,12 +36,12 @@ export default function RankingArtistas() {
               />
             </button>
             {menuOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-none overflow-hidden z-50 transition ease-out duration-200 transform origin-top-right">
                 <ul className="flex flex-col">
                   <li>
                     <Link
                       href="/perfil"
-                      className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors"
+                      className="block px-4 py-3 text-sm text-purple-700 hover:bg-green-100 active:bg-green-200 transition-colors"
                     >
                       Perfil
                     </Link>
@@ -73,7 +72,7 @@ export default function RankingArtistas() {
                   {artistaDestaque.nome.split(" ").slice(1).join(" ")}
                 </h1>
               </div>
-              <div className="relative w-[160px] h-40 overflow-visible">
+              <div className="relative w-[200px] h-52 overflow-visible">
                 <img
                   src="/images/foto.kendrick.svg"
                   alt={artistaDestaque.nome}

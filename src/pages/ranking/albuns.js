@@ -21,7 +21,6 @@ export default function RankingAlbuns() {
   return (
     <div
       className="flex flex-col items-center min-h-screen px-4 pt-6 bg-cover bg-center bg-no-repeat text-white"
-      style={{ backgroundImage: "url('/images/background.png')" }}
     >
       {/* Topo: Voltar + Dropdown */}
       <div className="w-full flex items-center justify-between mb-6 px-2 max-w-md mx-auto">
@@ -35,12 +34,12 @@ export default function RankingAlbuns() {
             />
           </button>
           {menuOpen && (
-            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-none overflow-hidden z-50 transition ease-out duration-200 transform origin-top-right">
               <ul className="flex flex-col">
                 <li>
                   <Link
                     href="/perfil"
-                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-purple-100 hover:text-purple-700 transition-colors"
+                    className="block px-4 py-3 text-sm text-purple-700 hover:bg-green-100 active:bg-green-200 transition-colors"
                   >
                     Perfil
                   </Link>

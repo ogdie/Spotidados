@@ -65,7 +65,11 @@ export default function Menu() {
       {/* CLIQUE E DESCUBRA */}
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold text-white leading-snug">
-          <span className="block text-purple-200">#CLIQUE E DESCUBRA</span>
+           <img
+              src="/images/clique.descubra.svg"
+              alt="clique"
+              className="w-[50x] h-[50px] cursor-pointer hover:scale-105 transition-transform"
+            />
           <span className="block text-green-400 text-lg mt-2">TEXTO ALTERAR</span>
         </h1>
       </div>

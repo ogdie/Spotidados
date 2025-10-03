@@ -16,17 +16,9 @@ export default function Home() {
     >
       {/* Topo */}
       <div className="w-full flex items-center justify-between mb-6 px-4 relative">
-        {/* Botão Voltar - Esquerda */}
-        <Link href="/voltar">
-          <img
-            src="/images/buttom.back.svg"
-            alt="Botão Voltar"
-            className="w-[60px] h-[60px] cursor-pointer"
-          />
-        </Link>
 
-        {/* Logo - Centro */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
+        {/* Logo - Esquerda */}
+        <div>
           <img
             src="/images/logo.spot.svg"
             alt="Logo Spotidados"
@@ -35,7 +27,7 @@ export default function Home() {
         </div>
 
         {/* Botão Menu - Direita */}
-        <div className="relative z-10">
+        <div className="ml-auto z-50">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2"
@@ -43,9 +35,10 @@ export default function Home() {
             <img
               src="/images/icon.menu.svg"
               alt="Botão Menu"
-              className="w-[40px] h-[40px] cursor-pointer"
+              className="w-[30px] h-[30px] cursor-pointer"
             />
           </button>
+
 
           {menuOpen && (
             <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded border border-gray-200 z-50">

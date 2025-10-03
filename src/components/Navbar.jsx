@@ -28,8 +28,6 @@ export default function Navbar() {
         alignItems: "center",
         borderTop: "1px solid #ccc",
         backgroundColor: "#fff",
-        position: "fixed",
-        bottom: 0,
         width: "100%",
       }}
     >
